@@ -179,6 +179,7 @@ class ChasseAuTresorResolve():
 
 
     def do_combat(self):
+        print("Entering combat function : Good luck")
         if self.window_manager.click_img(self.targets["pres"], [1,1], 1):
             return
         if not self.image_manager.is_in_screen(self.targets['your_turn']):
