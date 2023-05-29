@@ -1,6 +1,6 @@
 # Azzouz le chasseur
 
-Moitié du code pompé du poto Azzary big up pour le Selenium bot qui gère le dofus-map et pour l'astuce tesseract
+Merci au poto Azzary big up pour le Selenium bot qui gère le dofus-map et pour l'astuce tesseract
 
 The bot don't use your mouse is sending input to window  Dofus, no socket/sniffing (using win32).
 
