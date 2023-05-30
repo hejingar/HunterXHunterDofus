@@ -175,10 +175,6 @@ class ChasseAuTresorResolve():
         #cv2.destroyAllWindows()
         return (direction)
 
-
-
-
-
     def do_combat(self):
         if self.window_manager.click_img(self.targets["pres"], [1,1], 1):
             return

@@ -15,7 +15,7 @@ class Tchat():
         print("Writing command : "+text)
         for lettre in text:
             self.window_manager.press(lettre)
-            time.sleep(0.1)
+            time.sleep(0.05)
         self.window_manager.press_entree()
         
     
