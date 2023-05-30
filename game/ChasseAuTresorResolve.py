@@ -20,6 +20,7 @@ class ChasseAuTresorResolve():
             zoom = 4
         if self.window_manager.click_img(self.targets['combattre'], [0,0], 1, 0.8):
             self.do_combat()
+            self.bot.counter += 1
         direction, indice = self.find_next_target(zoom)
         if direction == False: return
         if "Phorreur" in indice:
@@ -179,7 +180,6 @@ class ChasseAuTresorResolve():
 
 
     def do_combat(self):
-        print("Entering combat function : Good luck")
         if self.window_manager.click_img(self.targets["pres"], [1,1], 1):
             return
         if not self.image_manager.is_in_screen(self.targets['your_turn']):

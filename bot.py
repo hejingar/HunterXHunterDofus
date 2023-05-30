@@ -11,6 +11,7 @@ import datetime
 class bot:
 
     def __init__(self):
+        self.counter = 0
         with open('config.json', 'r') as f:
             data = json.load(f)
         with open('MapPositions.json', 'r') as f:

@@ -15,7 +15,7 @@ class ChasseAuTresor():
         self.ch_resolve = game.ChasseAuTresorResolve.ChasseAuTresorResolve(bot)
 
     def take_hunt(self):
-        print("taking a hunt")
+        print("Taking a hunt : number "+ str(self.bot.counter))
         if not (self.bot.havre_sac.go_hb() and self.bot.havre_sac.use_zaap("Champs de Cania")):
             return False
         self.bot.Tchat.use_auto_palote(ChasseAuTresor.X_HUNT_ENTRY, ChasseAuTresor.Y_HUNT_ENTRY)
