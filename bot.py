@@ -83,6 +83,7 @@ class bot:
             elif(not self.chasse_au_tresor.is_in_hunt()):
                 self.chasse_au_tresor.take_hunt()
             else:
+                time.sleep(0.3)
                 self.chasse_au_tresor.do_hunt_step()
 
     def check_if_is_stuck(self):

@@ -32,7 +32,7 @@ class ChasseAuTresorResolve():
             if (lastx, lasty) != new_pos:
                 #self.bot.Tchat.use_auto_palote(new_pos[0], new_pos[1])
                 self.get_past_value()
-                self.click_flag() 
+                self.click_flag()
                 time.sleep(0.3) 
                 if(self.image_manager.is_in_screen(self.targets["cant_add_jalon"])):
                     return self.bot.chasse_au_tresor.quit_chasse()    
@@ -45,6 +45,7 @@ class ChasseAuTresorResolve():
     def click_flag(self):
         threshold = 0.8
         loop = True
+        time.sleep(0.2)
         while loop:
             if not self.window_manager.click_img(self.targets["next_target"], [1,1], 1, threshold):
                 if not self.window_manager.click_img(self.targets["next_target2"], [1,1], 1, threshold):
@@ -190,7 +191,7 @@ class ChasseAuTresorResolve():
     def lauch_spell(self):
         self.window_manager.click_img(self.targets["spell"], [1,1])
         print("click spell")
-        time.sleep(0.4)
+        time.sleep(0.3)
         self.window_manager.click_img(self.targets["coffre"], [0,0], 3, 0.8, True, 0.3)
         print("click mob")
-        time.sleep(1)
+        time.sleep(0.5)
