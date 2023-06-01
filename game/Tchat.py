@@ -28,10 +28,21 @@ class Tchat():
             self.window_manager.press(lettre)
             time.sleep(0.05)
 
-    def use_auto_palote(self, x, y):
+    def use_auto_palote(self, x, y):   
         self.send_in_chat("/mapid")
         self.send_in_chat(f"/travel {x} {y}")
-        time.sleep(0.1)
+        time.sleep(0.2)
+        if (self.image_manager.is_in_screen(self.targets["no_mount"], 0.85)):
+            print("coucou")
+            self.window_manager.click_img(self.targets["mount_menu"], [0,0])
+            #self.window_manager.press("d")
+            time.sleep(0.5)
+            self.window_manager.click_img(self.targets["on_mount"], [0,0])
+            time.sleep(0.5)
+            self.window_manager.click_img(self.targets["quit_mount_menu"], [0,0])
+            time.sleep(0.5)
+            self.send_in_chat(f"/travel {x} {y}")
+        time.sleep(0.2)
         if(not self.image_manager.wait_for_img(self.targets["ok_popup"], 0.8, 0.01, 4)):
             return
         self.window_manager.press_entree()

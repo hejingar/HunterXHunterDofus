@@ -26,7 +26,7 @@ class HavreSac:
         self.window_manager.click_img(self.targets["do_tp"])
         self.window_manager.press_entree()
         fini = True
-        max_wait = 5
+        max_wait = 3
         i = 0
         while not fini:
             for perso in ["personnage1", "personnage2", "personnage3", "personnage4", "personnage5", "personnage6", "personnage7"]:
