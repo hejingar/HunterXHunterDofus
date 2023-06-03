@@ -1,7 +1,5 @@
 # Azzouz le chasseur
 
-Merci au poto Azzary big up pour le Selenium bot qui gère le dofus-map et pour l'astuce tesseract
-
 The bot doesn't use your mouse, it's sending input to the Dofus window, no socket/sniffing (using win32) so it's quite hard to detect from Ankama. I still need to randomise the wait times to make it even more undetectable, so ftm just stay in front of it when 
 
 You need the autopilot (using a potion or digging into the game files, there are threads in cadernis on how to do this (at your own risk, 
