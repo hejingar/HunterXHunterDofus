@@ -30,6 +30,7 @@ class ChasseAuTresorResolve():
             lastx, lasty = self.bot.selenium_bot.get_x_y()
             new_pos = self.bot.selenium_bot.find_next_position(direction, indice)
             if (lastx, lasty) != new_pos:
+                #We using this to make 2 instances work cause we can't keep the "presse papier"
                 #self.bot.Tchat.use_auto_palote(new_pos[0], new_pos[1])
                 self.get_past_value()
                 self.click_flag()
