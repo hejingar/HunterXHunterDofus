@@ -192,7 +192,7 @@ class ChasseAuTresorResolve():
     def lauch_spell(self):
         self.window_manager.click_img(self.targets["spell"], [1,1])
         print("click spell")
-        time.sleep(0.3)
+        time.sleep(1)
         self.window_manager.click_img(self.targets["coffre"], [0,0], 3, 0.8, True, 0.3)
         print("click mob")
-        time.sleep(0.5)
+        time.sleep(2)
