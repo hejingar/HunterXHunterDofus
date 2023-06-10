@@ -71,7 +71,10 @@ class ChasseAuTresor():
             text = text.replace(elem_char, "")
         if(text == ""):
             return self.read_pos(zoom + 1)
-        return text.split(",") 
+        splitted = text.split(",")
+        if (len(splitted) < 2):
+            return self.read_pos(zoom + 1)
+        return splitted 
 
 
 

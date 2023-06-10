@@ -44,7 +44,7 @@ class Tchat():
             self.send_in_chat(f"/travel {x} {y}")
         time.sleep(0.2)
         if(not self.image_manager.wait_for_img(self.targets["ok_popup"], 0.8, 0.01, 4)):
-            return
+            return 0
         self.window_manager.press_entree()
         #time.sleep(5)
         screenshot = self.window_manager.get_screenshot()     

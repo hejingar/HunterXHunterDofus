@@ -36,7 +36,9 @@ class ChasseAuTresorResolve():
                 self.click_flag()
                 time.sleep(0.3) 
                 if(self.image_manager.is_in_screen(self.targets["cant_add_jalon"])):
-                    return self.bot.chasse_au_tresor.quit_chasse()    
+                    return self.bot.chasse_au_tresor.quit_chasse()
+                if(self.image_manager.is_in_screen(self.targets["cant_add_jalon_2"])):
+                    return self.bot.chasse_au_tresor.quit_chasse()
             else:
                 lastx, lasty = self.bot.get_player_pos()
                 self.bot.x, self.bot.y = lastx, lasty
@@ -190,9 +192,9 @@ class ChasseAuTresorResolve():
         self.window_manager.click_img(self.targets["pass_turn"], [1,1], 4, 0.8)
 
     def lauch_spell(self):
-        self.window_manager.click_img(self.targets["spell"], [1,1])
+        self.window_manager.click_img_combat(self.targets["spell"], [1,1])
         print("click spell")
         time.sleep(1)
-        self.window_manager.click_img(self.targets["coffre"], [0,0], 3, 0.8, True, 0.3)
+        self.window_manager.click_img_combat(self.targets["coffre"], [0,0], 3, 0.8, True, 0.3)
         print("click mob")
         time.sleep(2)

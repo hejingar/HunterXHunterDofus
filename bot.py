@@ -35,8 +35,8 @@ class bot:
 
     def get_player_pos(self):
         self.Tchat.send_in_chat("/mapid")
-        time.sleep(0.5)
-        pos = self.image_manager.positions(self.targets["carte_courante"])
+        time.sleep(1)
+        pos = self.image_manager.positions(self.targets["carte_courante"], threshold=0.85)
         if(pos == []):
             return self.get_player_pos()
         y = pos[1] + pos[3] + 10
@@ -52,6 +52,7 @@ class bot:
         # self.image_manager.save_img(img)
         # mapid = self.image_manager.read_text(img).replace("\n", "")
         mapid = mapid + ".0"
+        print(mapid)
         if(mapid in self.map_pos):
             return self.map_pos[mapid]["posX"], self.map_pos[mapid]["posY"]
         return self.get_player_pos()
