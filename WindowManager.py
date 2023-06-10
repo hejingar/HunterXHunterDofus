@@ -95,7 +95,47 @@ class WindowManager:
         win32gui.SendMessage(self.hwnd, win32con.WM_LBUTTONUP,
                              win32con.MK_LBUTTON, lParam)
 
+    def click_combat(self, x, y, sleep = 0.3):
+        self._click_combat(x , y)
+        time.sleep(sleep)
+        win32gui.SendMessage(self.hwnd, win32con.WM_MOUSEMOVE,
+                             0, win32api.MAKELONG(0, 0))
 
+    def _click_combat(self, x, y):
+        x = int(x)
+        y = int(y)
+        x -= 5
+        y -= 31
+        lParam = win32api.MAKELONG(x, y)
+        win32gui.SendMessage(self.hwnd, win32con.WM_MOUSEMOVE, 0, lParam)
+        time.sleep(0.5)
+        win32gui.SendMessage(
+            self.hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lParam)
+        win32gui.SendMessage(self.hwnd, win32con.WM_LBUTTONUP,
+                             win32con.MK_LBUTTON, lParam)
+    def click_img_combat(self, img, pos_to_add=[0, 0], timeout=10, threshold=0.90, clickc=True, sleep = 0.3):
+        has_timed_out = False
+        i = 0
+        while (not has_timed_out):
+            matches = self.positions(img, threshold=threshold)
+            i += 1
+            if (len(matches) == 0):
+                threshold -= 0.011
+                has_timed_out = i > timeout
+                if(timeout != 1):
+                    time.sleep(0.5)
+                continue
+            y, x, h, w = matches
+            pos_click_x = x + pos_to_add[0] + w/2
+            pos_click_y = y + pos_to_add[1] + h/2
+            # move the cursor to x , y
+            if clickc:
+                self.click_combat(pos_click_x, pos_click_y, sleep)
+                time.sleep(0.2)
+            return True
+
+        return False
+          
     def positions(self, target, img=None, threshold=0.90):
         if img is None:
             img = self.get_screenshot()
