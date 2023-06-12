@@ -42,6 +42,8 @@ class ChasseAuTresor():
         
         if abs(closer_zaap["coor"]['x'] - int(self.bot.x)) + abs(closer_zaap["coor"]['y'] - int(self.bot.y)) != 0:
             self.bot.Tchat.use_auto_palote(self.bot.selenium_bot.x, self.bot.selenium_bot.y)
+        if(self.image_manager.is_in_screen(self.targets["cant_add_jalon_2"])):
+                    return self.bot.chasse_au_tresor.quit_chasse()
         self.bot.selenium_bot.change_x_y(self.bot.x, self.bot.y)
 
     def quit_chasse(self):
