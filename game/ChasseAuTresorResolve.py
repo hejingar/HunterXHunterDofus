@@ -88,7 +88,7 @@ class ChasseAuTresorResolve():
                     self.bot.selenium_bot.x, self.bot.selenium_bot.y = self.bot.get_player_pos()
                     self.bot.selenium_bot.change_x_y(self.bot.selenium_bot.x, self.bot.selenium_bot.y)
                     return True
-        if(nb_rep > 4):
+        if(nb_rep > 3):
             self.bot.chasse_au_tresor.quit_chasse()
             return
         self.find_phorreur(reversed_pos[direction], nb_rep + 1)
