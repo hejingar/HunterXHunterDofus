@@ -1,14 +1,18 @@
 # Azzouz le chasseur
 
-The bot doesn't use your mouse, it's sending input to the Dofus window, no socket/sniffing (using win32) so it's quite hard to detect from Ankama. I still need to randomise the wait times to make it even more undetectable, so ftm just stay in front of it when 
+This is a bot for resolving the hunts in Dofus.
+It's using Tesseract (from Manheim University) for text image recognition, and Selenium with a chrome driver to search for the hints on the Dofus Map website.
 
-You need the autopilot (using a potion or digging into the game files, there are threads in cadernis on how to do this (at your own risk, 
-it might have been patched by Ankama))
+Simple PyAutoGUI to manage the dofus window, organic clics and everything (still need to randomize the delays, but the client/server connexion already adds buffer due to latency so it won't be urgent as it's not really detectable by Ankama), openCV for taking sc and managing images/getting positions etc
 
+The bot doesn't use your mouse, it's sending input to the Dofus window, no socket/sniffing (using win32) so it's quite hard to detect unless a mod comes to talk to you directly.
+
+You'll need the autopilot (using a potion or digging into the game files, there are threads in cadernis on how to do this (at your own risk, it might have been patched by Ankama))
+I'm working on a map changing function but some maps are "special" (going down brings you one case down and one case left in Bonta for eg) and i'm don't really want to spend much time parsing the whole dofus map and doing some A* search for shortest path (it will need a lot of ressources if you add this to the already process hungry libraries i use)
 
 IMPORTANT: 
     - Change 'targets/spell.png' by your spell icon.
-    - DO NOT minimize the chrome or Dofus window, you can keep it running in the background but if you minimize it, the bot will pète un câble
+    - DO NOT minimize the chrome or Dofus window, you can keep it running in the background but if you minimize it, the bot will peter un câble (it will just pause and do nothing as no window will be screenshotable or usable)
 
 Dofus options:
     - Limite de passage en mode creature = 0
@@ -29,12 +33,12 @@ Install all dependencies:
 ```
 
     you need to dl: https://github.com/UB-Mannheim/tesseract/wiki
-    if you change the path in the installer, change it in 'ImageManager.py' to:
+    if you change the path in the installer, change it in 'ImageManager.py' too:
 ```
 pytesseract.pytesseract.tesseract_cmd = r'NEW_PATH'
 ```
 
-    You also need to add the french trained data if you're using the game in french, or the bot will have a hard time to differentiate between "Crâne de licorne" and "Corne de licorne" for eg, search for the github repo, ez.
+    You also need to add the french trained data if you're using the game in french, or the bot will have a hard time to differentiate between "Crâne de licorne" and "Corne de licorne" for eg, search for the github repo, ez. I'll add a link here when I can
 
     You need chrome and chromedriver download to use it with selenium.
     Download the file of the same version as your google chrome, and place it in the folder where bot.py is.
@@ -50,7 +54,7 @@ pytesseract.pytesseract.tesseract_cmd = r'NEW_PATH'
 Then, start the bot by typing ```python bot.py```
 
 Not having a hunt is easier, as it will start the loop from the beginning
-Otherwise, the bot will ask you an input "HunterxHunter or ...":
+Otherwise, the bot will ask you for an input "HunterxHunter or ...":
 Type 1 if you are on the map of the start of the hunt, or type anything else so the bot gets you to the starting map.
 Note: If you are in the middle of a hunt, you MUST go to the last hint map, then input 1 to the question otherwise the bot will tp you at the first hint pos and it will get "stuck" (it'll quit your current hunt and get a new one)
 

@@ -185,7 +185,7 @@ class ChasseAuTresorResolve():
         if not self.image_manager.is_in_screen(self.targets['your_turn']):
             return time.sleep(0.5)
         print("your turn")
-        for i in range(2):
+        for i in range(3):
             self.lauch_spell()
             if not self.image_manager.is_in_screen(self.targets['in_fight']) or not self.image_manager.is_in_screen(self.targets['your_turn']):
                 break
