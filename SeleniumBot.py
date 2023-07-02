@@ -88,7 +88,7 @@ class SeleniumBot:
             self.driver.find_element(by=By.XPATH, value=f'//*[text()[contains(., "{text[:-1]}")]]').click()
             self.x, self.y = self.get_x_y()
             return True
-        except Exception:
+        except Exception as e:
             if not flag:
                 if nb > 10:
                     # get value of input

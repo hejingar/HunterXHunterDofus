@@ -38,7 +38,12 @@ Install all dependencies:
 pytesseract.pytesseract.tesseract_cmd = r'NEW_PATH'
 ```
 
-    You also need to add the french trained data if you're using the game in french, or the bot will have a hard time to differentiate between "Crâne de licorne" and "Corne de licorne" for eg, search for the github repo, ez. I'll add a link here when I can
+    You also need to add the french trained data if you're using the game in french, or the bot will have a hard time to differentiate between "Crâne de licorne" and "Corne de licorne" for eg
+
+    https://github.com/tesseract-ocr/tessdata
+    Take the trained data from whatever language you're using
+
+    IMPORTANT : If you're using Dofus in another language than french, when the selenium chrome windows opens up, while the bot takes the first hunt on dofus you have the time to change the language of Dofus-map if it's in french. Sometimes selenium refreshes the page, I haven't tested if the language changes when it does so feel free to open an issue so i can add the language change directly in the bot instead of doing it manually.
 
     You need chrome and chromedriver download to use it with selenium.
     Download the file of the same version as your google chrome, and place it in the folder where bot.py is.
