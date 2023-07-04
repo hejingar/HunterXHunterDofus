@@ -5,10 +5,14 @@ It's using Tesseract (from Manheim University) for text image recognition, and S
 
 Simple PyAutoGUI to manage the dofus window, organic clics and everything (still need to randomize the delays, but the client/server connexion already adds buffer due to latency so it won't be urgent as it's not really detectable by Ankama), openCV for taking sc and managing images/getting positions etc
 
+Can't run it on different instances (ftm) as there is only 1 buffer for the ctrlC/ctrlV on windows, working on a solution so you can multi with the bot (it actually generates around 1.5/2M per day per account, 1/4 in cash and the other in ressources)
+
+Can be used on diff VPS or small computers tho
+
 The bot doesn't use your mouse, it's sending input to the Dofus window, no socket/sniffing (using win32) so it's quite hard to detect unless a mod comes to talk to you directly.
 
 You'll need the autopilot (using a potion or digging into the game files, there are threads in cadernis on how to do this (at your own risk, it might have been patched by Ankama))
-I'm working on a map changing function but some maps are "special" (going down brings you one case down and one case left in Bonta for eg) and i'm don't really want to spend much time parsing the whole dofus map and doing some A* search for shortest path (it will need a lot of ressources if you add this to the already process hungry libraries i use)
+I'm working on a map changing function but some maps are "special" (going down brings you one case down and one case left in Bonta for eg) and i don't really want to spend much time parsing the whole dofus map and doing some A* search for shortest path (it will need a lot of ressources if you add this to the already process hungry libraries i use)
 
 IMPORTANT: 
     - Change 'targets/spell.png' by your spell icon.
@@ -41,7 +45,7 @@ pytesseract.pytesseract.tesseract_cmd = r'NEW_PATH'
     You also need to add the french trained data if you're using the game in french, or the bot will have a hard time to differentiate between "Crâne de licorne" and "Corne de licorne" for eg
 
     https://github.com/tesseract-ocr/tessdata
-    Take the trained data from whatever language you're using
+    Take the trained data for french language otherwise just ignore it (base trained data is eng so it should work, idk if there is a spanish version of dofus but dofus-map uses english for spanish users)
 
     IMPORTANT : If you're using Dofus in another language than french, when the selenium chrome windows opens up, while the bot takes the first hunt on dofus you have the time to change the language of Dofus-map if it's in french. Sometimes selenium refreshes the page, I haven't tested if the language changes when it does so feel free to open an issue so i can add the language change directly in the bot instead of doing it manually.
 
